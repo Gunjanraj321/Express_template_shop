@@ -18,11 +18,15 @@ module.exports = class Product {
     );
   }
 
-  static deleteById(id) {}
+  static deleteById(id) {
+    return db.execute('DELETE FROM products WHERE products.id = ?',[id])
+  }
 
   static fetchAll() {
     return db.execute('SELECT * FROM products');
   }
 
-  static findById(id) {}
+  static findById(id) {
+    return db.execute('SELECT * FROM products WHERE products.id = ?',[id])
+  }
 };
